@@ -7,5 +7,14 @@ export default defineConfig({
   define: {
     'process.env.HTTPS': false
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://193.233.49.179:3002',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
   plugins: [react()]
 });
