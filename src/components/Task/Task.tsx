@@ -79,6 +79,9 @@ const ResizableTextarea: React.FC<ResizableTextareaProps> = ({ value, id }) => {
   })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (value.length > 100) {
+      return;
+    }
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
