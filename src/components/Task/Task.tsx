@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BsTrashFill } from "react-icons/bs";
 import taskStore from "../../store";
 import { taskProps } from "../../utils/models";
@@ -71,6 +71,12 @@ const Task = (taskComponentProps: TaskComponentProps) => {
 
 const ResizableTextarea: React.FC<ResizableTextareaProps> = ({ value, id }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  })
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (textareaRef.current) {
