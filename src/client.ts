@@ -1,7 +1,9 @@
 import { taskProps } from "./utils/models";
 
-const _path = "http://193.233.49.179:3002";
-// const _path = "http://artemdev.website";
+// const _path = "http://193.233.49.179:3002";
+const _path = "https://artemdev.website";
+// const _path = "artemdev.website";
+
 
 export async function getTasks() {
   return await fetch(`${_path}/getTasks`, {
